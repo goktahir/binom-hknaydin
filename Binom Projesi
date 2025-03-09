@@ -1,0 +1,44 @@
+   #include <stdio.h>
+   #include <stdlib.h>
+   int faktoriyel(int sayi)
+   {
+       int sonuc=1;
+       int i=1;
+       for(i;i<=sayi;i++)
+      {
+          sonuc=sonuc*i;
+       }
+       return sonuc;
+   }
+   int komb(int n,int k)
+   {
+       return faktoriyel(n)/(faktoriyel(k)*faktoriyel(n-k));
+   }
+   void ba(int n)
+   {
+       int sonuc;
+       int r=n;
+       int k=0;
+       for(k;k<=n;k++)
+       {
+           sonuc=komb(n,k);
+           if(k>0)
+       {
+           printf(" + ");
+       }
+           printf("%da'%db'%d",sonuc,r,k);
+           r=r-1;
+       }
+   }
+   int main()
+   {
+       int n;
+       printf("n degerini giriniz:");
+       scanf("%d",&n);
+       printf("(a+b)^%d nin karsiligi:",n);
+       printf("\n");
+       ba(n);
+   
+ 
+      return 0;
+   }
